@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+	{{ form_start(form) }}
+		{{ form_widget(form) }}
+	{{ form_end(form) }}
+	<br/>
+	<div id="searchResult">
+	{% if results is iterable %}
+		{% if results|length != 0 %}
+			{% for result in results %}
+				<div>
+					<label> Name: <label> 
+					{{ result.name }}
+					<label> Price: <label>
+					{{ result.price }}
+				</div>
+			{% endfor %}
+		{% else %}
+			<div>
+				No RESULT for the search. Please try another name
+			</div>
+		{% endif %}
+	{% endif %}
+	<div>
+{% endblock %}

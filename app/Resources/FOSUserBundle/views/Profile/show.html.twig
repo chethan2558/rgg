@@ -1,0 +1,12 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+{% include "FOSUserBundle:Profile:show_content.html.twig" %}
+{% if app.user is not null %}
+	{% if is_granted('ROLE_ADMIN') %}
+		Role: Admin
+	{% else %}
+		Role: Normal User
+	{% endif %}
+{% endif %}
+{% endblock fos_user_content %}
